@@ -1,0 +1,43 @@
+<div class="cont">
+    <div class="Form">
+    <div class="d-flex vh-100">
+      <div class="d-flex w-100 justify-content-center align-self-center ">
+        <div class="border-dark rounded-sm">        
+          <form #LoginForm="ngForm" class="abs-form centro shadow p-3 mb-5 rounded" (ngSubmit)="onSubmit(LoginForm)" autocomplete="off">        
+            <img src="../../../assets/icono/User_2.png" class="Imagen-center" width="125px" height="125px">
+            <h5 class="Titulo">{{titulo}}</h5>
+            <div class="row">             
+              <div class="col-md-12">            
+                <div class="form-group">          
+                  <input type ="text" name="Email" #Email="ngModel" [(ngModel)]="user.email" placeholder="CORREO ELECTRONICO" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control Inputs"/>  
+                  <small *ngIf="!Email.valid && Email.touched" class="invalid-feedback d-block font-weight-bold">
+                    CORREO INVALIDO
+                  </small>               
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">          
+                  <input type ="password" name="Pass" #Pass="ngModel" [(ngModel)]="user.password" class="form-control Inputs" placeholder="CONTRASEÑA"  required >  
+                  <small *ngIf="!Pass.valid && Pass.touched" class="invalid-feedback d-block font-weight-bold">
+                    CONTRASEÑA INVALIDA
+                  </small>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark btn-lg btn-block" [disabled]="LoginForm.invalid">INGRESO</button>
+          </form>  
+          <div class="alert alert-danger" *ngIf="status == 'error'">
+              LA INFORMACIÓN SUMINITSRADA NO ES CORRECTA              
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <footer class="page-footer text-white Back">    
+        <div class="footer-copyright text-center py-3 font-weight-bold">
+          © 2019 Copyright:     
+        </div>      
+    </footer>

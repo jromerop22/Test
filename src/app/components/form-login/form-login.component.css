@@ -1,0 +1,46 @@
+.cont{    
+    background-color:rgba(1, 46, 43, 0.767);
+}
+.Form{    
+    background-color:darkslategrey;
+    width: 45%;       
+    margin: auto;
+}
+h5{
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+.abs-form{        
+    width: 70%;  
+    margin: auto;      
+    background-color:rgba(88, 90, 121, 0.11);        
+}
+.Titulo{
+    color: beige;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold; 
+}
+.Inputs{
+    border-block-color: beige;
+    background-color:transparent;
+    border: 1;
+    font-size: large;
+    font-family: 'Poppins', sans-serif;
+    color: beige;    
+}
+.Inputs::placeholder{    
+    padding: 5%;
+    font-family: 'Poppins', sans-serif;    
+    color: beige;
+}
+.Imagen-center{
+    display:block;
+    margin:auto;
+}
+.control{
+    margin-top: 10%;    
+}
+.Back{    
+    background-color:darkslategrey;    
+}

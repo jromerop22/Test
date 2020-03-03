@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="d-flex vh-100">
+        <div class="d-flex w-100 justify-content-center align-self-center ">
+            <form class="shadow-lg p-3 mb-5 bg-white rounded" #registerForm="ngForm"
+                (ngSubmit)="onSubmit(registerForm)">
+                <h1 class="mb-5">Formulario de registro</h1>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputTipoDocumento">Tipo Identificación</label>
+                        <select id="inputTipoDocumento" class="form-control" name="inputTipoDocumento"
+                            #inputTipoDocumento="ngModel" [(ngModel)]="usuario.typedocument" required>
+                            <option *ngFor="let tipo of tipoDocumento" [value]="tipo.Value">{{tipo.Text}}</option>
+                        </select>
+                        <div *ngIf="inputTipoDocumento.touched && !inputTipoDocumento.valid"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Se debe seleccionar un valor.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputIdentificar">Número Identificación</label>
+                        <input type="number" class="form-control" id="inputIdentificar" name="inputIdentificar"
+                            #inputIdentificar="ngModel" [(ngModel)]="usuario.identity" required>
+                        <div *ngIf="!inputIdentificar.valid && inputIdentificar.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Número Identificación es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNombres">Nombres</label>
+                        <input type="text" class="form-control" id="inputNombres" name="inputNombres"
+                            #inputNombres="ngModel" [(ngModel)]="usuario.name" placeholder="Nombres completos" required>
+                        <div *ngIf="!inputNombres.valid && inputNombres.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Nombres es obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputApellidos">Apellidos</label>
+                        <input type="text" class="form-control" id="inputApellidos" name="inputApellidos"
+                            #inputApellidos="ngModel" [(ngModel)]="usuario.lastname" placeholder="Apellidos completos"
+                            required>
+                        <div *ngIf="!inputApellidos.valid && inputApellidos.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Apellidos es obligatorio.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNacimiento">Fecha de nacimiento</label>
+                        <input type="date" class="form-control " id="inputNacimiento" name="inputNacimiento"
+                            #inputNacimiento="ngModel" [(ngModel)]="usuario.date" required>
+                        <div *ngIf="!inputNacimiento.valid && inputNacimiento.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Fecha de nacimiento es obligatorio.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEstadoCivil">Estado civil</label>
+                        <select id="inputEstadoCivil" class="form-control" id="inputEstadoCivil" name="inputEstadoCivil"
+                            #inputEstadoCivil="ngModel" [(ngModel)]="usuario.statuscivil" required>
+                            <option *ngFor="let status of estadoCivil" [value]="status.Value">{{status.Text}}
+                            </option>
+                        </select>
+                        <div *ngIf="!inputEstadoCivil.valid && inputEstadoCivil.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                            Se debe seleccionar un valor.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputFirma">Firma</label>
+                        <input type="text" class="form-control" id="inputFirma" name="inputFirma"
+                        #inputEstadoCivil="ngModel" [(ngModel)]="usuario.firm">
+                    </div>
+                </div>
+                <label>Imagen path : {{file.value}}</label>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" (change)="onFileChange($event)"
+                        id="file" name="file"
+                        #file="ngModel" [(ngModel)]="usuario.photo" required>
+                        <label class="custom-file-label" for="file">Seleccione archivo</label>
+                    </div>                    
+                </div>
+                <div *ngIf="!file.valid && file.touched"
+                            class="invalid-feedback d-block font-weight-bold">
+                        Se debe cargar una imagen
+                </div>
+                <button class="btn btn-success btn-lg btn-block mt-5" type="submit" [disabled]="registerForm.invalid">Registro</button>
+            </form>
+        </div>
+    </div>
+</div>
